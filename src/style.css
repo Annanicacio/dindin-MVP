@@ -1,0 +1,11 @@
+:root { --verde:#2f9e6e; --verde-esc:#14332a; --menta:#e6f6ef; --devendo:#c2410c; }
+body { background:#f6fbf8; color:var(--verde-esc); }
+.btn-dindin { background:var(--verde); color:#fff; border:0; }
+.btn-dindin:hover { background:#278a5e; color:#fff; }
+.topo { background:var(--verde-esc); color:#fff; }
+.cartao { background:#fff; border:1px solid #d5ebe0; border-radius:12px; padding:1.25rem; }
+.positivo { color:var(--verde); font-weight:600; }
+.negativo { color:var(--devendo); font-weight:600; }
+.aba { padding:.5rem 1rem; color:var(--verde-esc); text-decoration:none; border-bottom:3px solid transparent; }
+.aba.router-link-exact-active { border-color:var(--verde); font-weight:600; }
+.btn:focus-visible, .aba:focus-visible, .form-control:focus-visible { outline:3px solid var(--verde); outline-offset:2px; }
