@@ -8,7 +8,7 @@ const g = computed(() => app.grupo(route.params.id))
 <template>
   <div v-if="g">
     <h1 class="h3">{{ g.nome }}</h1>
-    <nav class="mb-3 border-bottom">
+    <nav class="abas mb-3 border-bottom">
       <RouterLink class="aba" :to="`/grupo/${g.id}`">Painel</RouterLink>
       <RouterLink class="aba" :to="`/grupo/${g.id}/despesa`">Nova despesa</RouterLink>
       <RouterLink class="aba" :to="`/grupo/${g.id}/historico`">Histórico</RouterLink>
@@ -16,5 +16,5 @@ const g = computed(() => app.grupo(route.params.id))
     </nav>
     <RouterView />
   </div>
-  <p v-else>Grupo não encontrado. <RouterLink to="/">Voltar</RouterLink></p>
+  <p v-else>Grupo não encontrado. <RouterLink to="/grupos">Voltar</RouterLink></p>
 </template>

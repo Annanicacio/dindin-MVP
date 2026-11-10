@@ -20,11 +20,24 @@ const lista = computed(() => g.value.despesas
       <option value="">Todos que pagaram</option><option v-for="m in g.membros" :key="m.id" :value="m.id">{{ m.nome }}</option></select></div>
   </div>
   <p v-if="!lista.length">Nenhuma despesa encontrada.</p>
-  <div class="table-responsive" v-else><table class="table bg-white align-middle">
+  <template v-else>
+  <!-- mobile: lista em cartões -->
+  <div class="d-md-none">
+    <div v-for="d in lista" :key="d.id" class="cartao mb-2 d-flex justify-content-between align-items-center gap-2">
+      <div class="text-break">
+        <strong>{{ d.descricao }}</strong> - {{ brl(d.valor) }}
+        <div class="small text-muted">{{ d.data.split('-').reverse().join('/') }} · {{ d.categoria }} · pagou: {{ nome(d.pagoPor) }}</div>
+      </div>
+      <button class="btn btn-sm btn-outline-danger flex-shrink-0" aria-label="Excluir" @click="app.remover(g.id, 'despesas', d.id)"><i class="bi bi-trash"></i></button>
+    </div>
+  </div>
+  <!-- desktop: tabela -->
+  <div class="table-responsive d-none d-md-block"><table class="table bg-white align-middle">
     <thead><tr><th>Data</th><th>Descrição</th><th>Categoria</th><th>Pagou</th><th>Valor</th><th></th></tr></thead>
     <tbody><tr v-for="d in lista" :key="d.id">
       <td>{{ d.data.split('-').reverse().join('/') }}</td><td>{{ d.descricao }}</td><td>{{ d.categoria }}</td>
       <td>{{ nome(d.pagoPor) }}</td><td>{{ brl(d.valor) }}</td>
       <td><button class="btn btn-sm btn-outline-danger" aria-label="Excluir" @click="app.remover(g.id, 'despesas', d.id)"><i class="bi bi-trash"></i></button></td>
     </tr></tbody></table></div>
+  </template>
 </template>

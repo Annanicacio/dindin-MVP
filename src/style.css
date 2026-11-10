@@ -5,7 +5,13 @@ body { background:#f6fbf8; color:var(--verde-esc); }
 .topo { background:var(--verde-esc); color:#fff; }
 .cartao { background:#fff; border:1px solid #d5ebe0; border-radius:12px; padding:1.25rem; }
 .positivo { color:var(--verde); font-weight:600; }
+.cartao-interesse { background:var(--menta); border-style:dashed; }
+.link-escuro { color:var(--verde-esc); font-weight:600; }
+.link-escuro:hover { color:var(--verde); }
 .negativo { color:var(--devendo); font-weight:600; }
-.aba { padding:.5rem 1rem; color:var(--verde-esc); text-decoration:none; border-bottom:3px solid transparent; }
+.abas { display:flex; flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+.abas::-webkit-scrollbar { display:none; }
+.aba { display:block; flex:0 0 auto; white-space:nowrap; padding:.5rem 1rem; color:var(--verde-esc); text-decoration:none; border-bottom:3px solid transparent; }
+@media (max-width:576px) { .aba { padding:.5rem .75rem; } }
 .aba.router-link-exact-active { border-color:var(--verde); font-weight:600; }
 .btn:focus-visible, .aba:focus-visible, .form-control:focus-visible { outline:3px solid var(--verde); outline-offset:2px; }

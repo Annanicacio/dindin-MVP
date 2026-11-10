@@ -7,7 +7,7 @@ export const useApp = defineStore('app', {
   actions: {
     // único ponto de persistência: troque por chamadas a uma API depois
     salvar() { localStorage.setItem(KEY, JSON.stringify({ usuario: this.usuario, grupos: this.grupos })) },
-    entrar(nome) { this.usuario = { nome }; this.salvar() },
+    entrar(nome, email) { this.usuario = { nome, email }; this.salvar() },
     sair() { this.usuario = null; this.salvar() },
     criarGrupo(nome, tipo, nomes) {
       const g = { id: uid(), nome, tipo, membros: nomes.map((n) => ({ id: uid(), nome: n })), despesas: [], fixas: [], acertos: [] }
